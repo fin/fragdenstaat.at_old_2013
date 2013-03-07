@@ -1,0 +1,67 @@
+{% overextends 'index.html' %}
+{% load i18n %}
+{% load url from future %}
+
+{% block index_banner %}
+<div class="container">
+    <div class="alert alert-info alert-block">
+        <b>FragDenStaat.at</b> ist ein neues Projekt, also fehlen noch ein paar Kleinigkeiten:<br />bis jetzt können nur Anfragen an die Bundesministerien und die Landesregierungen gestellt werden.
+        <br />
+        Mehr kommt bald!
+    </div>
+</div>
+{% endblock %}
+
+{% block index_sub_right %}
+    {{block.super}}
+    <h3><a href="https://transparenzgesetz.at?ref=fds">Transparenzgesetz.at</a>?</h3>
+    <p>Die Amtsverschwiegenheit in Verfassungsrang bietet Behörden eine Ausrede, Auskünfte nicht zu erteilen und Dokumente nicht zu veröffentlichen. <a href="https://transparenzgesetz.at?ref=fds">Transparenzgesetz.at</a> fordert ein besseres Gesetz für einen transparenteren Staat.</p>
+{% endblock %}
+
+{% comment %}<div class="row">
+  <div class="span6">
+    <h3>Was ist das Auskunftspflichtgesetz?</h3>
+    <p>Jeder Bürger hat gemäß Auskunftspflichtgesezt von 1987 das Recht Fragen an die Verwaltung zu richten. Diese müssen innerhalb von 8 Wochen beantwortet werden.
+    <br/>
+     <a class="target-new" href="https://de.wikipedia.org/wiki/Auskunftspflichtgesetz">Erfahren Sie mehr über das österreichische Auskunftspflichtgesetz</a>
+     </p><br />
+    <h3>Ist das Auskunftspflichtgesetz ein Informationsfreiheitsgesetz?</h3>
+    <p>Nein, das Österreichische Auskunftspflichtgesetz ist kein Informationsfreiheitsgesetz im eigentlichen Sinn, da nur Auskünfte, nicht Einsicht in Akten geregelt wurde. Außerdem ist ihm der Grundsatz der Amtsverschwiegenheit übergeordnet und gibt weite Ausnahmeregelungen: So brauchen Behörden nicht zu antworten, wenn es zu viel Aufwand wäre oder die Anfrage "mutwillig" gestellt wird. Einen Versuch ist es aber auf jeden Fall wert.
+     <a class="target-new" href="http://de.wikipedia.org/wiki/Informationsfreiheit">{% blocktrans %}Read more about the Freedom of Information!{% endblocktrans %}</a>
+    </p>
+  </div>
+
+  <div class="span6">
+    <h3>{% blocktrans %}What does this site do?{% endblocktrans %}</h3>
+    <p>Diese Seite veröffentlicht die Anfragen nach dem Auskunftspflichtgesetz und ihre Antworten, so dass der Vorgang durch die Öffentlichkeit geprüft werden kann.
+    <br/>
+     <a href="{% url 'help-index' %}">{% blocktrans %}Read more about the concept!{% endblocktrans %}</a>
+     </p><br />
+     <h3>Was passiert mit abgelehnten Anfragen?</h3>
+     <p>Viele Anfragen werden in Österreich leider immer noch abgelehnt. Österreich ist das einzige Land der EU-15, in dem das Amtsgeheimnis noch in der Verfassung steht. Abgelehnte Abfragen helfen uns aber zu dokumentieren, wie wichtig ein wirkliches Informationsfreiheitsgesetz wäre.<br />Dafür setzen wir uns ein: Mit <a href="http://transparenzgesetz.at">Transparenzgesetz.at</a> - der unabhängigen Kampagne für ein echtes Transparenzgesetz.</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <h3>{% blocktrans %}Successful Requests{% endblocktrans %}</h3>
+    <ul class="unstyled">
+        {% for object in successful_foi_requests %}
+        <li>
+          {% include "foirequest/snippets/request_item.html" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="span6">
+    <h3>{% blocktrans %}Unsuccessful Requests{% endblocktrans %}</h3>
+    <ul class="unstyled">
+      {% for object in unsuccessful_foi_requests %}
+        <li>
+          {% include "foirequest/snippets/request_item.html" %}
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endcomment %}
