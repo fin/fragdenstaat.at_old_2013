@@ -1,5 +1,6 @@
 .navbar .nav>li>a {
     border-right: none;
+    padding: 16px 15px 14px;
 }
 
 .navbar-static-top {
